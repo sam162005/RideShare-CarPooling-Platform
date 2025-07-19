@@ -1,0 +1,170 @@
+.passenger-selection-page {
+  min-height: 100vh;
+  background: #f8f9fa;
+  display: flex;
+  flex-direction: column;
+}
+
+.passenger-selection-container {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 0 20px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.passenger-selection-card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.passenger-selection-title {
+  font-size: 1.8rem;
+  color: #2c3e50;
+  text-align: center;
+  margin-bottom: 40px;
+  font-weight: 600;
+}
+
+.passenger-counter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 40px;
+  width: 100%;
+}
+
+.counter-button {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: white;
+  border: 2px solid #e9ecef;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  color: #007aff;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.counter-button:hover {
+  background: #f8f9fa;
+}
+
+.counter-button:disabled {
+  color: #ced4da;
+  cursor: not-allowed;
+}
+
+.passenger-count {
+  font-size: 4rem;
+  font-weight: 700;
+  color: #2c3e50;
+  margin: 0 50px;
+  min-width: 60px;
+  text-align: center;
+}
+
+.passenger-options {
+  width: 100%;
+  margin-bottom: 30px;
+}
+
+.passenger-option {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  border: 1px solid #e9ecef;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+.passenger-option-checkbox {
+  margin-right: 15px;
+  width: 20px;
+  height: 20px;
+}
+
+.passenger-option-text {
+  flex: 1;
+}
+
+.passenger-option-title {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #2c3e50;
+  margin-bottom: 5px;
+}
+
+.passenger-option-description {
+  font-size: 0.9rem;
+  color: #6c757d;
+}
+
+.passenger-option-icon {
+  margin-left: 15px;
+  color: #6c757d;
+  cursor: pointer;
+}
+
+.continue-button {
+  background: #007aff;
+  color: white;
+  border: none;
+  border-radius: 50px;
+  padding: 15px 40px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  width: 200px;
+}
+
+.continue-button:hover {
+  background: #0062cc;
+}
+
+.continue-button:disabled {
+  background: #e9ecef;
+  color: #6c757d;
+  cursor: not-allowed;
+}
+
+.notification-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #ff3b30;
+  color: white;
+  padding: 15px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.notification-bar-content {
+  max-width: 800px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.notification-text {
+  flex: 1;
+}
+
+.notification-close {
+  margin-left: 20px;
+  cursor: pointer;
+}

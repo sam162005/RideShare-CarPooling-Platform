@@ -1,0 +1,352 @@
+:root {
+  --primary-color: #3498db;
+  --secondary-color: #2980b9;
+  --accent-color: #e74c3c;
+  --text-color: #333;
+  --light-text: #666;
+  --border-color: #ddd;
+  --background-color: #f9f9f9;
+  --card-background: #fff;
+  --success-color: #2ecc71;
+  --border-radius: 8px;
+  --box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  --transition: all 0.3s ease;
+  --header-gradient: linear-gradient(135deg, #3498db 0%, #1a5276 100%);
+  --header-text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.profile-page {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 1.5rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: var(--dark-color);
+  background-color: #f9fafb;
+  min-height: calc(100vh - 70px);
+}
+  
+  /* Loading state */
+  .loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70vh;
+    font-size: 1.2rem;
+    color: #666;
+    text-align: center;
+  }
+  
+  /* Error state */
+  .error-state {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 70vh;
+    text-align: center;
+  }
+  
+  .error-message {
+    color: #e53e3e;
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+    max-width: 400px;
+  }
+  
+  .retry-btn {
+    background-color: #3563E9;
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  
+  .retry-btn:hover {
+    background-color: #2954d4;
+    transform: translateY(-2px);
+  }
+  
+  .profile-header {
+    background: var(--header-gradient);
+    margin: -1.5rem -1.5rem 2rem -1.5rem;
+    padding: 3.5rem 1.5rem 3rem;
+    color: white;
+    border-radius: 0 0 var(--border-radius) var(--border-radius);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+    border-bottom: 4px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  /* Add decorative elements to header */
+  .profile-header::before {
+    content: '';
+    position: absolute;
+    top: -80px;
+    right: -80px;
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    z-index: 1;
+    animation: pulse 15s infinite alternate ease-in-out;
+  }
+  
+  .profile-header::after {
+    content: '';
+    position: absolute;
+    bottom: -50px;
+    left: -50px;
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.08);
+    z-index: 1;
+    animation: pulse 12s infinite alternate-reverse ease-in-out;
+  }
+  
+  @keyframes pulse {
+    0% { transform: scale(1); opacity: 0.05; }
+    50% { transform: scale(1.1); opacity: 0.1; }
+    100% { transform: scale(1); opacity: 0.05; }
+  }
+  
+  /* Car icon decorations */
+  .header-decoration {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 32px;
+    opacity: 0.3;
+    z-index: 2;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+    animation: float 6s infinite ease-in-out;
+  }
+  
+  .header-decoration-left {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 28px;
+    opacity: 0.2;
+    z-index: 2;
+    transform: scaleX(-1);
+    animation: float 8s infinite ease-in-out reverse;
+  }
+  
+  @keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+  }
+
+  .user-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .profile-pic-container {
+    position: relative;
+    margin-bottom: 1.5rem;
+    z-index: 5;
+    display: inline-block;
+  }
+
+  .profile-pic {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid white;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+    background-color: #e2e8f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 4rem;
+    color: #a0aec0;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+  }
+  
+  /* Add a subtle glow effect around the profile pic */
+  .profile-pic::after {
+    content: '';
+    position: absolute;
+    top: -8px;
+    left: -8px;
+    right: -8px;
+    bottom: -8px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 70%);
+    z-index: -1;
+    pointer-events: none;
+  }
+  
+  .profile-pic:hover {
+    transform: scale(1.05);
+  }
+
+  .edit-profile-pic {
+    position: absolute;
+    bottom: 8px;
+    right: 8px;
+    background-color: white;
+    color: var(--primary-color);
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.25);
+    transition: var(--transition);
+    z-index: 10;
+  }
+
+  .edit-profile-pic:hover {
+    transform: scale(1.1);
+  }
+
+  .user-info h3 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 0.75rem 0 0.25rem 0;
+    text-shadow: var(--header-text-shadow);
+    letter-spacing: 0.5px;
+    position: relative;
+    display: inline-block;
+  }
+  
+  .user-info h3::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 3px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 3px;
+  }
+
+  .user-info p {
+    font-size: 1rem;
+    opacity: 0.9;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+  }
+  
+  .user-info .user-rating {
+    display: inline-flex;
+    align-items: center;
+    margin-top: 0.75rem;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 6px 15px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+  }
+  
+  .user-info .star-icon {
+    color: #FFD700;
+    margin-right: 4px;
+  }
+
+  .section-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin: 2rem 0 1rem 0;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid #e2e8f0;
+    color: var(--dark-color);
+  }
+  
+  .profile-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 1rem 0;
+    padding: 1rem;
+    border-radius: var(--border-radius);
+    background-color: white;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    transition: var(--transition);
+  }
+
+  .profile-section:hover {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    transform: translateY(-2px);
+  }
+
+  .section-content {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .section-label {
+    font-size: 0.85rem;
+    color: var(--gray-color);
+    margin-bottom: 0.25rem;
+  }
+
+  .section-value {
+    font-size: 1rem;
+    color: var(--dark-color);
+    font-weight: 500;
+  }
+
+  .edit-btn {
+    background: none;
+    color: var(--primary-color);
+    border: none;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem;
+    border-radius: 4px;
+    transition: var(--transition);
+  }
+
+  .edit-btn:hover {
+    background-color: rgba(53, 99, 233, 0.1);
+  }
+
+  .edit-icon {
+    font-size: 1.1rem;
+  }
+
+  .add {
+    color: var(--primary-color);
+    font-weight: 500;
+  }
+
+  .verification-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    color: var(--success-color);
+    font-size: 0.85rem;
+    margin-left: 0.5rem;
+  }
+
+  .badge-icon {
+    font-size: 1rem;
+  }
+  

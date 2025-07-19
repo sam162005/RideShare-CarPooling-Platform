@@ -1,0 +1,306 @@
+.ride-published-page {
+  min-height: 100vh;
+  background-color: #f8f9fa;
+  position: relative;
+  overflow: hidden;
+}
+
+.success-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding-top: 40px;
+  position: relative;
+  z-index: 10;
+}
+
+/* Success checkmark */
+.success-checkmark {
+  font-size: 80px;
+  color: #28a745;
+  margin-bottom: 20px;
+  opacity: 0;
+  transform: scale(0.5);
+  transition: all 0.5s ease;
+}
+
+.success-checkmark.animate {
+  opacity: 1;
+  transform: scale(1);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    filter: drop-shadow(0 0 0 rgba(40, 167, 69, 0.7));
+  }
+  50% {
+    transform: scale(1.05);
+    filter: drop-shadow(0 0 10px rgba(40, 167, 69, 0.7));
+  }
+  100% {
+    transform: scale(1);
+    filter: drop-shadow(0 0 0 rgba(40, 167, 69, 0.7));
+  }
+}
+
+/* Success title */
+.success-title {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: #333;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.5s ease 0.2s;
+}
+
+.success-title.animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Success subtitle */
+.success-subtitle {
+  font-size: 16px;
+  color: #666;
+  margin-bottom: 30px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.5s ease 0.3s;
+}
+
+.success-subtitle.animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Ride ID */
+.ride-id {
+  background-color: #f0f8ff;
+  padding: 10px 20px;
+  border-radius: 50px;
+  font-size: 14px;
+  color: #0056b3;
+  margin-bottom: 20px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.5s ease 0.4s;
+}
+
+.ride-id.animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.ride-id span {
+  font-weight: 700;
+}
+
+/* Ride details card */
+.ride-details-card {
+  background-color: white;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  margin-bottom: 30px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.5s ease 0.5s;
+}
+
+.ride-details-card.animate {
+  opacity: 1;
+  transform: translateY(0);
+  animation: cardAppear 0.5s ease;
+}
+
+@keyframes cardAppear {
+  0% {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.ride-details-card h2 {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: #333;
+  text-align: left;
+}
+
+/* Ride detail items */
+.ride-detail-item {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 15px;
+  text-align: left;
+  animation: fadeIn 0.5s ease forwards;
+  opacity: 0;
+  animation-delay: calc(0.6s + var(--index, 0) * 0.1s);
+}
+
+.ride-detail-item:nth-child(2) { --index: 1; }
+.ride-detail-item:nth-child(3) { --index: 2; }
+.ride-detail-item:nth-child(4) { --index: 3; }
+.ride-detail-item:nth-child(5) { --index: 4; }
+.ride-detail-item:nth-child(6) { --index: 5; }
+.ride-detail-item:nth-child(7) { --index: 6; }
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.ride-detail-icon {
+  width: 40px;
+  height: 40px;
+  background-color: #f0f8ff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 15px;
+  color: #0056b3;
+  flex-shrink: 0;
+}
+
+.ride-detail-content {
+  flex: 1;
+}
+
+.ride-detail-label {
+  font-size: 12px;
+  color: #666;
+  margin-bottom: 4px;
+}
+
+.ride-detail-value {
+  font-size: 16px;
+  font-weight: 500;
+  color: #333;
+}
+
+/* Action buttons */
+.action-buttons {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 10px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.5s ease 0.8s;
+}
+
+.action-buttons.animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.primary-button {
+  background-color: #0056b3;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 15px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.primary-button:hover {
+  background-color: #003d82;
+}
+
+.secondary-button {
+  background-color: white;
+  color: #0056b3;
+  border: 1px solid #0056b3;
+  border-radius: 8px;
+  padding: 15px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.secondary-button:hover {
+  background-color: #f0f8ff;
+}
+
+/* Confetti animation */
+.confetti-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.confetti {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background-color: #f0f;
+  top: -10px;
+  animation: confetti-fall 5s linear infinite;
+}
+
+@keyframes confetti-fall {
+  0% {
+    opacity: 1;
+    top: -10px;
+    transform: translateX(0) rotate(0deg);
+  }
+  100% {
+    opacity: 0;
+    top: 100%;
+    transform: translateX(100px) rotate(360deg);
+  }
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .success-checkmark {
+    font-size: 60px;
+  }
+  
+  .success-title {
+    font-size: 24px;
+  }
+  
+  .ride-detail-item {
+    margin-bottom: 12px;
+  }
+  
+  .ride-detail-icon {
+    width: 32px;
+    height: 32px;
+  }
+  
+  .ride-detail-value {
+    font-size: 14px;
+  }
+}
